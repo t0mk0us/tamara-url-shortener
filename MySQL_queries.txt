@@ -1,0 +1,17 @@
+CREATE SCHEMA `urlshort` DEFAULT CHARACTER SET utf8 ;
+
+
+Specs:
+
+1. Max 10 characters excluant le nom du domaine - int argument specifying the generated URL length:
+	- define domaine name (ex. localhose:8080)
+2. Same long URL should generate same short:
+	must be persisted in the database, since generated randomly;
+3. •  Deux URL complètes identiques doivent donner la même URL raccourcie. 
+	- consult URLs already shortened, and return the short version
+	
+	
+	
+	=============================
+	
+	https://shorturl.at/oFQpB

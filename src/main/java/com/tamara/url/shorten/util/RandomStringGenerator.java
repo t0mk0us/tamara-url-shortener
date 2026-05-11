@@ -2,6 +2,11 @@ package com.tamara.url.shorten.util;
 
 import java.util.Random;
 
+
+/*Author Tamara Melnikova
+ * Random String Generatore for the Short URL Generator
+ */
+
 public class RandomStringGenerator {
 
     public static String randomAlphaNumeric(int length) {

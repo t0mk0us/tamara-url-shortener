@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <style>
+avatar {
+	width: 25%; 
+	valign: top;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+buttons {
+  display: grid;
+  height: 100vh;
+  /* margin: 0; */
+  place-items: center;
+  position: fixed;
+
+}
+
+button {
+  padding: 10px;
+  width: 150px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  background-color: white;
+  color: #97750e;
+  border-radius: 5px;
+  border-color: w#97750e;
+  border-width: 1x;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #97750e;
+  color: white;
+}
+
+h3{
+  margin-bottom: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #2596be;
+  margin-left: 16px;
+}
+
+h4 {
+  margin-bottom: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+}
+
+footer {
+  border-top: 1px solid #125c99;
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+.navbar {
+  border-bottom: 2px solid #97750e;
+  text-align: center;
+  top: 0;
+  background: white;
+  text-decoration: none;
+  color: #125c99;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #125c99;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+
+.navbar a:hover {
+  background: #125c99;
+  color: white;
+}
+
+nav {
+  border-bottom: 2px solid #97750e;
+  text-align: left;
+  position: fixed;
+  top: 0;
+  background: white;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #125c99;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+
+nav a:hover {
+  background: #125c99;
+  color: white;
+}
+
+#page-body {
+  /* max-width: 700px; */
+  /* margin: auto; */
+  text-align: center;
+  margin-right: 100px;
+  padding-top: 64px;
+}
+
+#bank-body {
+  /* max-width: 700px; */
+  /* margin: auto; */
+  text-align: center;
+  padding-top: 49px;
+  padding-bottom: 49px;
+}
+
+.article-list-item {
+  text-decoration: none;
+  color: black;
+  padding: 16px 0 0 0;
+}
+
+.article-list-item p {
+  padding-bottom: 32px;
+  border-bottom: 2px solid black;
+}
+
+#add-comment-form {
+  border-bottom: 1px solid black;
+  padding: 16px;
+}
+
+#add-comment-form h3 {
+  margin-bottom: 16px;
+}
+
+#add-comment-form input, textarea {
+  display: block;
+  width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  border: 2px solid black;
+  margin-bottom: 16px;
+}
+
+#add-comment-form button {
+  width: 320px;
+}
+
+#upvotes-section button, p {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.comment {
+  border-bottom: 2px solid black;
+  padding: 16px;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+td {
+	padding: 10px;
+}
+
+th {
+  border-bottom: 4px solid #97750e;
+}
+
+.tdfooter {
+ border-top: 1px solid #125c99;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+ /* The container must be positioned relative: */
+ .custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #97750e;
+  color: #ffffff;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div {
+  color: #125c99;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #f4f5d5;
+} 
+
+</style>
+  <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+	<div>
+    <table width=100%>
+        <tr height="60">
+            <th colspan="4" align="center">
+				<span class="navbar">
+                    <a href="">Home</a>
+					<a href="">About</a>
+					<a href="">Elements</a>
+					<a href="">Elements List</a>
+					<a href="">Search</a>
+					<a href="">Test</a>
+</span>
+            </th>
+        </tr>
+        <tr>
+		<td rowspan="6" valign="top" width="250">
+		  <img src="file:///C:/Users/tomko/OneDrive/Documents/Avatar1.jpg" width="250" />
+		  </br>
+		  		<h3>Welcome to my 
+        <br />
+        Super Bank !</h3>
+		  <br />
+		</td>
+            <td width=30%>Month</th>
+            <td width=30%>Savings</th>
+            <td width=30%>Savings for holiday!</th>
+          </tr>
+        <tr>
+          <td>Column 1</td>
+          <td>Column 2</td>
+          <td>Column 3</td>
+        </tr>
+        <tr>
+          <td>Column 1</td>
+          <td>Column 2</td>
+          <td>Column 3</td>
+          <tr>
+            <td>Column 1</td>
+            <td>Column 2</td>
+            <td>Column 3</td>
+          </tr>
+        </tr>
+		<tr>
+		<td colspan="4" align="center">
+		 <br />
+		</td>
+		</tr>
+		<tr>
+            <td colspan="4" align="center">
+  <br />
+  		 <button type="button" onClick="">Currency</button>
+        <button type="button" onClick="">Element</button>
+        <button type="button" onClick="">Text</button>
+        <button type="button" onClick="">Test</button>
+        <button type="button" onClick="">Test2</button>
+        <button type="button" onClick="">Search</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center" class="tdfooter">
+			<p>
+                        &copy;
+        &nbsp;Design4Logic 2024
+</p>
+            </td>
+        </tr>
+      </table>
+	  </div>
+	  	<div class="custom-select"  style="width:200px;">
+                <select>			
+			                        <option value='Choose a Province', value='Unknown'>Please, select</option>
+                                    <option value='Alberta', value: 'Alberta'>Alberta</option>
+                                    <option value='British Columbia', value='British Columbia'>British Columbia</option>
+                                    <option value='Manitoba', value='Manitoba'>Manitoba</option>
+                                    <option value='New Brunswick', value='New Brunswick'>New Brunswick</option>
+                                    <option value='Manitoba', value='Manitoba'>Manitoba</option>
+                                    <option value='Newfoundland and Labrador', value='Newfoundland and Labrador'>Newfoundland and Labrador</option>
+                                    <option value='Nova Scotia', value='Nova Scotia'>Nova Scotia</option>
+                                    <option value='Ontario', value='Ontario'>Ontario</option>
+                                    <option value='Prince Edward Island', value='Prince Edward Island'>Prince Edward Island</option>
+                                    <option value='Quebec', value='Quebec'>Quebec</option>
+                                    <option value='Saskatchewan', value='Saskatchewan'>Saskatchewan</option>
+	</select>
+</div>	
+			<script lang="javascript">
+	var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect); 
+</script>
+  </body>
+</html>

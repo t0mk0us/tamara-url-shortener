@@ -1,0 +1,19 @@
+git clone //path to repository
+
+npm run build    //to build the app
+
+//Deploy must be done before committing and pushing to the git repo
+To publish
+npm run deploy
+
+git add --all
+git commit -a -m "commit description"  //--a option for "all"
+git push -u origin main
+
+git push -u origin main --force  //to force
+
+To publish
+npm run deploy
+
+Create a pull request to merge main into gh-pages
+Merge the pull request

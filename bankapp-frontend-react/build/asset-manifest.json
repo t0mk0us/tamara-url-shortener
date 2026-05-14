@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c6dc6341.css",
+    "main.js": "/static/js/main.a058879b.js",
+    "static/js/453.b036790e.chunk.js": "/static/js/453.b036790e.chunk.js",
+    "static/media/AI_Vibrant.jpg": "/static/media/AI_Vibrant.0f34a5659bc6d51b9aad.jpg",
+    "static/media/NerdGirl2.jpg": "/static/media/NerdGirl2.1ddd94160cb8e457fd8c.jpg",
+    "static/media/visalogo.jpg": "/static/media/visalogo.f9e8c2333814c6f10f6c.jpg",
+    "static/media/d4logic_2_flat.jpg": "/static/media/d4logic_2_flat.0ae8d941433de499c1c3.jpg",
+    "index.html": "/index.html",
+    "main.c6dc6341.css.map": "/static/css/main.c6dc6341.css.map",
+    "main.a058879b.js.map": "/static/js/main.a058879b.js.map",
+    "453.b036790e.chunk.js.map": "/static/js/453.b036790e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6dc6341.css",
+    "static/js/main.a058879b.js"
+  ]
+}

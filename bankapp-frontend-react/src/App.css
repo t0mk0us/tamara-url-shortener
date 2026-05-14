@@ -1,0 +1,379 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+.smallprint {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+}
+
+ul { 
+  display: inline-block;
+  overflow: scroll; 
+  }
+
+li { 
+  display: inline-block;
+  }
+
+buttons {
+  display:inline-block;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+button {
+  padding: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  background-color: white;
+  /*color: #97750e;*/
+  color: #125c99;
+  /*
+  border-radius: 5px;
+  */
+  border-color: #97750e;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.searchbutton {
+  padding: 6px;
+  width: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: white;
+  color: #125c99;;
+  /* border-radius: 5px;
+  */
+  border-color: #97750e;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.searchbutton:hover {
+  background: #97750e;
+  color: white;
+}
+
+button:hover {
+  background: #97750e;
+  color: white;
+}
+
+h3{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  color: #125c99;
+  margin-left: 0px;
+  padding-left: 16px;
+  vertical-align: top;
+  align-content: left;
+}
+
+.insidetitle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #125c99;
+  margin-left: 0px;
+  padding-left: 16px;
+  vertical-align: top;
+  align-content: left;
+}
+
+h4 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  color: #125c99;
+  font-weight: 400;
+  margin-left: 50px;
+  padding-left: 16px;
+  vertical-align: top;
+  align-content: left;
+  border-top: 3px solid #125c99;
+}
+
+h5{
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: lighter;
+  color: black;
+  margin-left: 0px;
+  padding-left: 16px;
+  vertical-align: top;
+  align-content: left;
+}
+
+h6{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: black;
+  font-weight:700;
+  vertical-align: bottom;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.hrline {
+  width: 90%;
+  align-self: right;
+  border-top:2px solid #125c99;
+  color: #125c99;
+  background-color:#125c99
+}
+
+.topimage {
+  padding: 0px;
+  vertical-align: bottom;
+  /*
+  background-image: url("./pages/images/bkgrounds/OcenWater1.jpg");
+  background-image: url("./pages/images/bkgrounds/OcenWater2.jpg");
+  background-image: url("./pages/images/bkgrounds/Wayvi1.jpg");
+  background-image: url("./pages/images/bkgrounds/Wayvy2.jpg");
+  background-image: url("./pages/images/bkgrounds/AbstractColorful.jpg");
+  background-image: url("./pages/images/bkgrounds/GenAI_Splash.jpg");
+  */
+  background-image: url("./pages/images/bkgrounds/AI_Vibrant.jpg");
+}
+
+img {
+  /*
+  border: 1px solid #125c99;
+  */
+}
+
+.cardlogo {
+  border: 1px solid #125c99;
+}
+
+footer {
+  border-top: 1px solid #125c99;
+  text-align: center;
+  font-size: 16px;
+  color:grey;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+nav {
+  /* border-bottom: 2px solid #97750e; */
+  text-align: left;
+  top: 0;
+  width: 100%;
+  background: #125c99;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  /*
+  padding-top: 16px;
+  padding-bottom: 16px;
+  */
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+nav a:hover {
+  background: white;
+  color: #125c99;
+}
+
+#page-body {
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  padding: 0px;
+  background: #f4f5d5;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+#bank-body {
+  width: 100%;
+  text-align: center;
+  padding-left: 20px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.article-list-item {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 16px 0 0 0;
+}
+
+.article-list-item p {
+  padding-bottom: 32px;
+  border-bottom: 2px solid black;
+}
+
+#add-comment-form {
+  border-bottom: 1px solid black;
+  padding: 16px;
+}
+
+#add-comment-form h3 {
+  margin-bottom: 16px;
+}
+
+#add-comment-form input, textarea {
+  display: block;
+  width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  border: 2px solid black;
+  margin-bottom: 16px;
+}
+
+#add-comment-form button {
+  width: 320px;
+}
+
+#upvotes-section button, p {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.comment {
+  border-bottom: 2px solid black;
+  padding: 16px;
+}
+
+.avatar {
+  vertical-align: top;
+  margin-left: 16px;
+}
+
+.pagebody {
+  vertical-align: top;
+  background: #f4f5d5;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+th, td {
+  padding-left: 0px;
+  vertical-align: top;
+/* 
+  border: 1px solid #125c99;
+ */
+}
+
+.logo {
+  vertical-align: bottom;
+}
+
+.texttable {
+  padding-left: 10px;
+  vertical-align: top;
+  align-content: left;
+}
+
+.textcolumn {
+  padding-left: 10px;
+  vertical-align: top;
+  align-content: left;
+  font-size: 14px;
+}
+
+.columntitle {
+  align-content: left;
+  text-align: left;
+  padding-left: 10px;
+}
+
+input[type=text] {
+  background-color:#fce9b1;
+  border: 1px solid #97750e;
+  border-radius: 0px;
+}
+
+text {
+  background-color:#e6d297;
+  border: #125c99;
+  border-width: thin;
+  border-radius: 0%;
+}
+
+select {
+  background-color:  #97750e;
+  color: white;
+ /*
+  padding: 16px;
+  */
+  font-size: 16px;
+  /*border: #125c99;
+  border-width: thin;
+  */
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: #125c99;
+  color: white;
+  border: #97750e;
+  border-width: thin;
+  border-radius: 0%;
+}
+
+.select-items {
+  background-color: white;
+  color: #125c99;
+}
+
+.selectclass {
+  background-color:  #97750e;
+  color: white;
+  border: #125c99;
+  border-width: 2px;
+}
+
+.selectclass:hover {
+  background-color: #125c99;
+  /* background-color: white; */
+  color: white;
+  border-color: #97750e;
+  border-radius: 0%;
+  border-width:thin;
+}
+
+.optionclass {
+  background-color: white;
+  color: #125c99;
+  border-radius: 0%;
+  border-color: #97750e;
+  border-width: 1px;
+}
+
+.optionclass:hover {
+  background-color: #97750e;
+  color: white;
+}
+
+.selectclass select {
+  display: none; /*hide original SELECT element: */
+}
+
+select li {
+  background-color: white;
+  color: #125c99;
+}

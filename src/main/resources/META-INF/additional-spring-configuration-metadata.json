@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "app.base-url",
-  "type": "java.lang.String",
-  "description": "A description for 'app.base-url'"
-}]}
+{"properties": [
+  {
+    "name": "app.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'app.base-url'"
+  },
+  {
+    "name": "management.endpoint.stop.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'management.endpoint.stop.enabled'"
+  }
+]}

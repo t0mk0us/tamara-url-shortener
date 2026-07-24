@@ -6,7 +6,11 @@ import java.time.Instant;
 @Entity
 @Table(name = "url_mapping", indexes = {
         @Index(columnList = "code", unique = true),
+<<<<<<< HEAD
         @Index(columnList = "originalUrl")
+=======
+       // @Index(columnList = "originalUrl")
+>>>>>>> 8121f06 (Linked back-end to front-end)
 })
 public class UrlMapping {
 
@@ -14,6 +18,7 @@ public class UrlMapping {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @Column(nullable = false, unique = true, length = 10)
     private String code;
 
@@ -27,6 +32,22 @@ public class UrlMapping {
     private Instant createdAt = Instant.now();
 
     @Column(nullable = false)
+=======
+    @Column(nullable = false, unique = true, length = 10, name = "code")
+    private String code;
+    
+    @Column(nullable = false, length = 2048, name = "original_url")
+    private String originalUrl;
+
+    
+    @Column(nullable = false, name = "short_url")
+    private String shortUrl;
+
+    @Column(nullable = false, name = "created_at")
+    private Instant createdAt = Instant.now();
+
+    @Column(nullable = false, name = "redirect_count")
+>>>>>>> 8121f06 (Linked back-end to front-end)
     private long redirectCount = 0L;
 
     public UrlMapping() {}

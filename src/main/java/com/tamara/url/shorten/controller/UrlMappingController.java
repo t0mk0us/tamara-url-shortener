@@ -1,5 +1,6 @@
 package com.tamara.url.shorten.controller;
 
+<<<<<<< HEAD
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -18,11 +19,24 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+=======
+>>>>>>> 8121f06 (Linked back-end to front-end)
 import com.tamara.url.shorten.exception.ShortUrlNotFoundException;
 import com.tamara.url.shorten.model.UrlMapping;
 import com.tamara.url.shorten.repository.UrlMappingRepository;
 import com.tamara.url.shorten.service.UrlMappingService;
+<<<<<<< HEAD
 import com.tamara.url.shorten.util.RandomStringGenerator;
+=======
+
+import jakarta.validation.constraints.NotBlank;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
+>>>>>>> 8121f06 (Linked back-end to front-end)
 
 import java.net.URI;
 import java.util.Map;
@@ -30,6 +44,7 @@ import java.util.Optional;
 import java.util.Random;
 
 @RestController
+<<<<<<< HEAD
 @Validated
 @Slf4j
 @RequestMapping("/api")
@@ -56,6 +71,29 @@ public class UrlMappingController {
 		public String getUrl() {
 			return null;
 		}
+=======
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:5173") // React front
+public class UrlMappingController {
+
+    private final UrlMappingService service;
+    private final UrlMappingRepository urlMappingRepository;
+    private static final String BASE_URL = "http://localhost:7777/";
+
+    public UrlMappingController(UrlMappingService service, UrlMappingRepository repository) {
+        this.service = service;
+        this.urlMappingRepository = repository;
+    }
+
+    // DTOs
+    public static class ShortenRequest {
+        @NotBlank
+        public String url;
+
+        public ShortenRequest() {}
+        public ShortenRequest(String url) { this.url = url; }
+        public String getUrl() { return url; }
+>>>>>>> 8121f06 (Linked back-end to front-end)
     }
 
     public static class ShortenResponse {
@@ -70,6 +108,7 @@ public class UrlMappingController {
         }
     }
 
+<<<<<<< HEAD
     @PostMapping("/shorten")
     public ResponseEntity<?> shorten(@RequestBody Map<String, String> body) {
         String originalUrl = body.get("url");
@@ -89,10 +128,41 @@ public class UrlMappingController {
         ));
     }
     
+=======
+    @PostMapping(value = "/shorten", consumes = "application/json")
+    public ResponseEntity<String> shorten(@RequestBody ShortenRequest request) {
+        String originalUrl = request.getUrl();
+        Optional<UrlMapping> existing = urlMappingRepository.findByOriginalUrl(originalUrl);
+        
+        System.out.println("Received " + request);
+
+        if (existing.isPresent()) {
+            UrlMapping mapping = existing.get();
+            System.out.println("Exist. Returning " + mapping.getShortUrl());
+            String message = BASE_URL + mapping.getCode();
+           return new ResponseEntity<>(message, HttpStatus.OK);
+            
+        }
+        else {
+
+	        String code = generateUniqueCode();
+	        UrlMapping mapping = new UrlMapping();
+	        mapping.setCode(code);
+	        mapping.setOriginalUrl(originalUrl);
+	        mapping.setShortUrl(BASE_URL + code);
+	        urlMappingRepository.save(mapping);
+	
+	        System.out.println("Not Exist. Returning " + mapping);
+	        String message = BASE_URL + mapping.getCode();
+	        return new ResponseEntity<>(message, HttpStatus.OK);
+        }
+    }
+>>>>>>> 8121f06 (Linked back-end to front-end)
 
     @GetMapping("/{code}")
     public ResponseEntity<?> redirect(@PathVariable String code) {
         Optional<UrlMapping> mappingOpt = urlMappingRepository.findByCode(code);
+<<<<<<< HEAD
 
         if (mappingOpt.isPresent()) {
             UrlMapping mapping = mappingOpt.get();
@@ -149,3 +219,67 @@ public class UrlMappingController {
     }
 }
 
+=======
+        if (mappingOpt.isPresent()) {
+            UrlMapping mapping = mappingOpt.get();
+            return ResponseEntity.status(302).location(URI.create(mapping.getOriginalUrl())).build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+    
+	/*
+	 * @GetMapping(value = "/restore", consumes = "application/json") public
+	 * ResponseEntity<String> restore(@RequestBody String shortUrl) {
+	 * 
+	 * System.out.println("Inside restore ");
+	 * 
+	 * Optional<UrlMapping> existing =
+	 * urlMappingRepository.findByShortUrl(shortUrl);
+	 * 
+	 * System.out.println("Received existing " + shortUrl);
+	 * 
+	 * if (existing.isPresent()) { UrlMapping mapping = existing.get();
+	 * System.out.println("Exist. Returning " + mapping.getOriginalUrl()); String
+	 * message = mapping.getOriginalUrl(); return new ResponseEntity<>(message,
+	 * HttpStatus.OK); } else { throw new ShortUrlNotFoundException(shortUrl,
+	 * "Short URL not found"); } }
+	 */
+    
+    @GetMapping("/restore")
+    public ResponseEntity<String> restore(@RequestParam String shortUrl) {
+        System.out.println("Inside restore: " + shortUrl);
+
+        Optional<UrlMapping> existing = urlMappingRepository.findByShortUrl(shortUrl);
+
+        if (existing.isPresent()) {
+            String originalUrl = existing.get().getOriginalUrl();
+            System.out.println("Found mapping, returning " + originalUrl);
+            return ResponseEntity.ok(originalUrl);
+        } else {
+            System.out.println("Not found for shortUrl: " + shortUrl);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("URL not found");
+        }
+    }
+
+
+    private String generateUniqueCode() {
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random random = new Random();
+        String code;
+        do {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 10; i++) {
+                sb.append(chars.charAt(random.nextInt(chars.length())));
+            }
+            code = sb.toString();
+        } while (urlMappingRepository.existsByCode(code));
+        return code;
+    }
+
+    @ExceptionHandler({ShortUrlNotFoundException.class})
+    public ResponseEntity<ProblemDetail> handleNotFound(Exception ex, WebRequest request) {
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(detail);
+    }
+}
+>>>>>>> 8121f06 (Linked back-end to front-end)
